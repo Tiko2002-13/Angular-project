@@ -1,0 +1,53 @@
+<img class="light-img" [src]="lightImageUrl" alt="Light image" />
+<div class="content-box">
+  <div class="text-box">
+    <p class="body-bold p1">{{ title }}</p>
+    <h1 class="heading-primary p2">{{ descryption }}</h1>
+    <p class="body-default p3">
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Magna in est
+      adipiscing in phasellus non in justo.
+    </p>
+  </div>
+
+  <app-btn
+    (click)="onShopping()"
+    routerLink="/products/Headphones"
+    routerLinkActive="active"
+    text="Shop now"
+  ></app-btn>
+</div>
+
+<img class="currentItem" [src]="currentUrl" alt="Item png" />
+<div class="bg1"></div>
+<div class="bg2"></div>
+
+<div class="discount-box">
+  <img [src]="discountImageUrl" alt="Discount image" class="discount-img" />
+  <h3 class="heading-tertiary">50% off</h3>
+</div>
+
+<div class="btn-box">
+  <div
+    [ngClass]="{
+      'rectangle-btn': true,
+      'rectangle-btn-active': activeindex === 0
+    }"
+    (click)="onClick(0)"
+  ></div>
+
+  <div
+    [ngClass]="{
+      'rectangle-btn': true,
+      'rectangle-btn-active': activeindex === 1
+    }"
+    (click)="onClick(1)"
+  ></div>
+
+  <div
+    [ngClass]="{
+      'rectangle-btn': true,
+      'rectangle-btn-active': activeindex === 2
+    }"
+    (click)="onClick(2)"
+  ></div>
+</div>

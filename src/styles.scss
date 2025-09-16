@@ -1,0 +1,40 @@
+// === Angular Material theming ===
+@use '@angular/material' as mat;
+
+// Apply Material theme (with Josefin Sans as typography)
+html {
+  @include mat.theme((
+    color: (
+      primary: mat.$azure-palette,
+      tertiary: mat.$blue-palette,
+    ),
+    typography: 'Josefin Sans', // ✅ overwrite typography to Josefin Sans
+    density: 0,
+  ));
+}
+
+// === Body base styles ===
+body {
+  // Default light mode
+  color-scheme: light;
+
+  // Use Angular Material system colors
+  background-color: var(--mat-sys-surface);
+  color: var(--mat-sys-on-surface);
+
+  // Reset margin
+  margin: 0;
+
+  // ✅ Global font
+  font-family: 'Josefin Sans', sans-serif;
+}
+
+// === Global resets and secondary styles ===
+@import './secondaryStyles/base.scss';
+@import './secondaryStyles/variables.scss';
+@import './secondaryStyles/typography.scss';
+
+// === Global layout rules ===
+html, body {
+  height: 100%;
+}

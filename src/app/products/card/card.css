@@ -1,0 +1,138 @@
+.heading-primary {
+  font-weight: 700;
+  font-size: 5.2rem;
+  line-height: 6.4rem;
+  letter-spacing: 1.5%;
+}
+
+.heading-secondary {
+  font-weight: 700;
+  font-size: 4.4rem;
+  line-height: 5.2rem;
+  letter-spacing: 1.5%;
+}
+
+.heading-tertiary {
+  font-weight: 700;
+  font-size: 3.6rem;
+  line-height: 4.4rem;
+  letter-spacing: 1.5%;
+}
+
+.heading-small {
+  font-weight: 700;
+  font-size: 2.8rem;
+  line-height: 3.6rem;
+  letter-spacing: 1.5%;
+}
+
+.subtitle-large {
+  font-weight: 700;
+  font-size: 2.6rem;
+  line-height: 3.2rem;
+}
+
+.subtitle-medium {
+  font-weight: 700;
+  font-size: 2.2rem;
+  line-height: 2.8rem;
+}
+
+.subtitle-small {
+  font-weight: 700;
+  font-size: 2rem;
+  line-height: 2.4rem;
+}
+
+.subtitle-tiny {
+  font-weight: 600;
+  font-size: 1.6rem;
+  line-height: 2rem;
+}
+
+.body-large {
+  font-family: Lato, sans-serif;
+  font-weight: 400;
+  font-size: 1.8rem;
+  line-height: 2.4rem;
+}
+
+.body-default {
+  font-family: Lato, sans-serif;
+  font-weight: 400;
+  font-size: 1.6rem;
+  line-height: 2rem;
+}
+
+.body-bold {
+  font-family: Lato, sans-serif;
+  font-weight: 700;
+  font-size: 1.6rem;
+  line-height: 2rem;
+}
+
+.body-small {
+  font-family: Lato, sans-serif;
+  font-weight: 400;
+  font-size: 1.4rem;
+  line-height: 1.6rem;
+}
+
+.label-default {
+  font-weight: 400;
+  font-size: 1.6rem;
+  line-height: 2rem;
+}
+
+.label-bold {
+  font-weight: 700;
+  font-size: 1.6rem;
+  line-height: 2rem;
+}
+
+.label-small {
+  font-weight: 400;
+  font-size: 1.4rem;
+  line-height: 1.6rem;
+}
+
+:host {
+  width: 98rem;
+  height: 24rem;
+  display: flex;
+  align-items: center;
+  position: relative;
+  box-shadow: 0.8rem 6.4rem 8rem -1.6rem rgba(16, 23, 80, 0.15);
+}
+
+.info-box {
+  display: flex;
+  padding: 1.5rem;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.price-box {
+  display: flex;
+  gap: 2rem;
+}
+
+.deprecated {
+  text-decoration: line-through;
+}
+
+.grey3 {
+  color: #8A8FB9;
+}
+
+.icon-box {
+  margin-top: 5.5rem;
+  display: flex;
+  gap: 4rem;
+}
+
+app-stars.rating-star {
+  position: absolute;
+  top: 2rem;
+  left: 85%;
+}/*# sourceMappingURL=card.css.map */

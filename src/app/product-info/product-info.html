@@ -1,0 +1,58 @@
+<app-product-item></app-product-item>
+<div class="info-section">
+    <div class="headings">
+        <a class="subtitle-large link"  (click)="onActivate(1)">Description</a>
+        <a class="subtitle-large link"  (click)="onActivate(2)">Additional Info</a>
+        <a class="subtitle-large link"  (click)="onActivate(3)">Reviews</a>
+        <a class="subtitle-large link"  (click)="onActivate(4)">Video</a>
+        <div class="underline underline-1" *ngIf="activeLink === 1"></div>
+        <div class="underline underline-2" *ngIf="activeLink === 2"></div>
+        <div class="underline underline-3" *ngIf="activeLink === 3"></div>
+        <div class="underline underline-4" *ngIf="activeLink === 4"></div>
+    </div>
+
+    <div class="content-box">
+        <div class="main">
+            <p class="subtitle-medium">Varius tempor.</p>
+            <p class="body-default grey3">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras ac quam dolor. In dignissim lectus sed nisl tempor, ac porttitor libero consectetur. Pellentesque diam dolor, tincidunt nec ante congue, tincidunt facilisis tortor. Mauris vitae massa molestie, sagittis ligula vel, egestas massa. Phasellus quis sodales augue. Donec nec ultricies diam. Integer feugiat odio ut dictum viverra. Donec vehicula nisi placerat cursus mollis. Nunc aliquam tempor justo, ut sagittis nisi. Mauris ullamcorper quis nisl sed dictum. Maecenas quam risus, congue quis accumsan at, imperdiet sed lectus. Aliquam in est purus</p>
+        </div>
+
+        <div class="secondary">
+            <p class="subtitle-medium">More details</p>
+            <div class="text-box">
+                <img [src]="checkImgUrl">
+                <p class="body-default grey3">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras ac quam dolor. In dignissim lectus sed nisl tempor, ac porttitor libero consectetur.</p>
+            </div>
+            <div class="text-box">
+                <img [src]="checkImgUrl">
+                <p class="body-default grey3">Cras ac quam dolor. In dignissim lectus sed nisl tempor, ac porttitor libero consectetur. Pellentesque diam dolor, tincidunt nec ante.</p>
+            </div>
+            <div class="text-box">
+                <img [src]="checkImgUrl">
+                <p class="body-default grey3">Pellentesque diam dolor, tincidunt nec ante congue, tincidunt facilisis tortor.</p>
+            </div>
+            <div class="text-box">
+                <img [src]="checkImgUrl">
+                <p class="body-default grey3">Mauris vitae massa molestie, sagittis ligula vel, egestas massa. Phasellus quis sodales augue. Donec nec ultricies diam.</p>
+            </div>
+            <div class="text-box">
+                <img [src]="checkImgUrl">
+                <p class="body-default grey3">Phasellus quis sodales augue. Integer feugiat odio ut dictum viverra.</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="related-products">
+    <div class="text-box">
+        <h3 class="heading-tertiary">Related Products</h3>
+    </div>
+    <div class="product-box">
+        <app-product-card [variant]="1" [ind]="0"></app-product-card>
+        <app-product-card [variant]="1" [ind]="1"></app-product-card>
+        <app-product-card [variant]="1" [ind]="2"></app-product-card>
+        <app-product-card [variant]="1" [ind]="3"></app-product-card>
+    </div>
+</div>
+
+<app-footer></app-footer>

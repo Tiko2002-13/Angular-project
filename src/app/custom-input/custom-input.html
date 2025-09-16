@@ -1,0 +1,11 @@
+<div class="custom-input">
+    <input [class.wrong]="emailControl.invalid && emailControl.touched" [formControl]="emailControl" type="text" [placeholder]="btnText">
+    <button class="search-button">
+        @if(isIcon) {
+            <img  [src]="searchBar" alt="Search Icon">
+        } @else {
+            <p class="btn-text">Sign up</p>
+        }
+    </button>
+</div>
+

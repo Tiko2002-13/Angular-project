@@ -1,0 +1,7 @@
+<div class="container" (mouseenter)="onHover(true)" (mouseleave)="onHover(false)">
+    <img [src]="trendingProducts[ind].imgUrl" [alt]="trendingProducts[ind].name" class="trending-img">
+    <div class="img-bg"></div>
+    <app-btn *ngIf="isHovered" class="special-button" routerLink="/products" text="View Category"></app-btn>
+    <p class="subtitle-small product-name">{{trendingProducts[ind].name}}</p>
+</div>
+

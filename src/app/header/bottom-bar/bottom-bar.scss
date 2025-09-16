@@ -1,0 +1,31 @@
+@import '../../../secondaryStyles/variables.scss';
+@import '../../../secondaryStyles/typography.scss';
+
+.bottom-bar {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 7rem;
+    width: 100%;
+}
+
+img {
+    transform: translateX(9rem);
+}
+
+.nav-links {
+    display: flex;
+    gap: 4rem;
+    transform: translateX(-15rem);
+    a,a:link,a:visited,
+    a:hover,a:active {
+        cursor: pointer;
+        color: $color-black;          
+        text-decoration: none;  
+    }
+}
+
+.active {
+    color: $color-primary-default !important;
+}
+

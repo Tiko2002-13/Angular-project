@@ -1,0 +1,19 @@
+<div [ngClass]="{ 'container': true, 'isActive': isHovered}" (mouseenter)="onHover(true)" (mouseleave)="onHover(false)">
+    <img [src]="products[ind].imgUrl" alt={{products[ind].name}} class="product-image"/>
+    <div class="icons">
+        <div *ngIf="isHovered && hoverDisabled !== true" [ngClass]="{ 'bg-div': true, 'bg-active': acitve}" ></div>
+        <div *ngIf="isHovered && hoverDisabled !==  true" class="bg-div bg-div2"></div>
+        <img *ngIf="isHovered && hoverDisabled !==  true"  (click)="onAdd(products[ind])" [src]="shopIconUrl" alt="Shop Icon" class="product-icon main-icon"/>
+        <img *ngIf="isHovered && hoverDisabled !==  true"  [src]="heartIconUrl" alt="Add Icon" class="product-icon main-icon"/>
+        <img *ngIf="isHovered && hoverDisabled !==  true"  [src]="loopIconUrl" alt="Zoom Icon" class="product-icon"/>
+    </div>
+    <app-btn *ngIf="isHovered && hoverDisabled !==  true" (click)="onView(products[ind])" text="View Details" class="special-button"></app-btn>
+    <p class="label-bold p1">{{products[ind].name}}</p>
+    <p *ngIf="variant === 1" class="label-small p3">Code - Y523201</p>
+    <p *ngIf="variant === 1" class="label-bold ">{{products[ind].price}}</p>
+    <div *ngIf="variant === 2" class="discount-box">
+        <p class="label-default">$58.00</p>
+        <p class="label-small p3 marked">{{products[ind].price}}</p>
+    </div>
+</div>
+

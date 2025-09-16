@@ -1,0 +1,39 @@
+<div class="head-box">
+    <h2 class="heading-secondary">Discount Item</h2>
+    <div class="chooseItems">
+        <a [class.primary]="currentItem.name === 'headphones'" (click)="onClick('headphones')" class="body-large primary">Headphones</a>
+        <a [class.primary]="currentItem.name === 'notebook'" (click)="onClick('laptop')" class="body-large">Laptop</a>
+        <a class="body-large">Other</a>
+    </div>
+</div>
+<div class="container">
+    <div class="text-box">
+        <h3 class="heading-tertiary">20% Discount Of All Products</h3>
+        <p class="subtitle-medium primary">Headphones Compact</p>
+        <p class="body-large grey3">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Eu eget feugiat habitasse nec, bibendum condimentum.</p>
+        <div class="gridbox">
+            <div class="gridItem">
+                <img [src]="checkImgUrl" alt="Check">
+                <p class="body-default grey3">Material expose like metals</p>
+            </div>
+            <div class="gridItem">
+                <img [src]="checkImgUrl" alt="Check">
+                <p class="body-default grey3">Clear lines and geomatric figures</p>
+            </div>
+            <div class="gridItem">
+                <img [src]="checkImgUrl" alt="Check">
+                <p class="body-default grey3">Simple neutral colours.</p>
+            </div>
+            <div class="gridItem">
+                <img [src]="checkImgUrl" alt="Check">
+                <p class="body-default grey3">Material expose like metals</p>
+            </div>
+        </div>
+        <app-btn text="Shop Now" routerLink="/products"></app-btn>
+    </div>
+    <div class="itemBox">
+        <div class="big-bg"></div>
+        <div class="small-bg"></div>
+        <img [src]="currentItem.imgUrl" [alt]="currentItem.name" class="item">
+    </div>
+</div>

@@ -1,0 +1,141 @@
+.heading-primary {
+  font-weight: 700;
+  font-size: 5.2rem;
+  line-height: 6.4rem;
+  letter-spacing: 1.5%;
+}
+
+.heading-secondary {
+  font-weight: 700;
+  font-size: 4.4rem;
+  line-height: 5.2rem;
+  letter-spacing: 1.5%;
+}
+
+.heading-tertiary {
+  font-weight: 700;
+  font-size: 3.6rem;
+  line-height: 4.4rem;
+  letter-spacing: 1.5%;
+}
+
+.heading-small {
+  font-weight: 700;
+  font-size: 2.8rem;
+  line-height: 3.6rem;
+  letter-spacing: 1.5%;
+}
+
+.subtitle-large {
+  font-weight: 700;
+  font-size: 2.6rem;
+  line-height: 3.2rem;
+}
+
+.subtitle-medium {
+  font-weight: 700;
+  font-size: 2.2rem;
+  line-height: 2.8rem;
+}
+
+.subtitle-small {
+  font-weight: 700;
+  font-size: 2rem;
+  line-height: 2.4rem;
+}
+
+.subtitle-tiny {
+  font-weight: 600;
+  font-size: 1.6rem;
+  line-height: 2rem;
+}
+
+.body-large {
+  font-family: Lato, sans-serif;
+  font-weight: 400;
+  font-size: 1.8rem;
+  line-height: 2.4rem;
+}
+
+.body-default {
+  font-family: Lato, sans-serif;
+  font-weight: 400;
+  font-size: 1.6rem;
+  line-height: 2rem;
+}
+
+.body-bold {
+  font-family: Lato, sans-serif;
+  font-weight: 700;
+  font-size: 1.6rem;
+  line-height: 2rem;
+}
+
+.body-small {
+  font-family: Lato, sans-serif;
+  font-weight: 400;
+  font-size: 1.4rem;
+  line-height: 1.6rem;
+}
+
+.label-default {
+  font-weight: 400;
+  font-size: 1.6rem;
+  line-height: 2rem;
+}
+
+.label-bold {
+  font-weight: 700;
+  font-size: 1.6rem;
+  line-height: 2rem;
+}
+
+.label-small {
+  font-weight: 400;
+  font-size: 1.4rem;
+  line-height: 1.6rem;
+}
+
+.custom-input {
+  display: flex;
+}
+
+:host.inp {
+  transform: translate(3.2rem, -6rem);
+}
+
+input {
+  border: 1px solid #E5E0FC;
+  border-radius: 8px;
+  padding: 2px;
+  padding-left: 16px;
+  width: 33rem;
+  transform: translateX(-4rem);
+}
+
+button {
+  width: 6rem;
+  height: 4rem;
+  border-radius: 6px;
+  background-color: #FB2E86;
+  position: relative;
+  transform: translateX(-10rem);
+  border: none;
+}
+button img {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.btn-text {
+  font-weight: 600;
+  font-size: 1.2rem;
+  line-height: 1.4rem;
+  color: #FFFFFF;
+}
+
+.wrong {
+  border: 1px solid #FB2448;
+}/*# sourceMappingURL=custom-input.css.map */

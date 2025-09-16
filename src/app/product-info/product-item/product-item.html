@@ -1,0 +1,21 @@
+<div class="product-buying">
+    <div class="img-box">
+        <img [src]="product.imgUrl" class="img1">
+        <img [src]="product.imgUrl" class="img2 img">
+        <img [src]="product.imgUrl" class="img3 img">
+        <img [src]="product.imgUrl" class="img4 img">
+    </div>    
+    <div class="text-box">
+        <h3 class="heading-tertiary">{{product.name}}</h3>
+        <app-stars [starCount]="2"></app-stars>
+        <div class="price-box">
+            <p class="label-default">$90.00</p>
+            <p class="label-small primary lined">{{product.price}}</p>
+        </div>
+        <p class="body-default grey">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris tellus porttitor purus, et volutpat sit.</p>
+        <div class="action-box">
+            <app-btn (click)="addToCart(product)"  [text]="hasProducts ? 'In Cart' : 'Add To Cart'"></app-btn>
+            <img [src]="heartIconUrl">
+        </div>
+    </div>
+</div>
