@@ -4,7 +4,7 @@
 
 **Your Stripe Secret Key should NEVER be in frontend code!**
 
-Your secret key: `sk_test_51SXiFvGZJJGnPK4uQPnvEgBRUKN2Pof4NXQuiODGAatKI0sxI02HqqZ7hmnRXZv0mHXGR7nBR7JfaBQvdjLhefHg00nHi7KPJC`
+Your secret key: `YOUR_STRIPE_SECRET_KEY_HERE`
 
 ## ✅ Where to Use Secret Key
 
@@ -28,14 +28,14 @@ Your secret key: `sk_test_51SXiFvGZJJGnPK4uQPnvEgBRUKN2Pof4NXQuiODGAatKI0sxI02Hq
 
 ```javascript
 // functions/.env or functions/config
-STRIPE_SECRET_KEY=sk_test_51SXiFvGZJJGnPK4uQPnvEgBRUKN2Pof4NXQuiODGAatKI0sxI02HqqZ7hmnRXZv0mHXGR7nBR7JfaBQvdjLhefHg00nHi7KPJC
+STRIPE_SECRET_KEY=YOUR_STRIPE_SECRET_KEY_HERE
 ```
 
 ### Node.js/Express
 
 ```javascript
 // .env file (add to .gitignore!)
-STRIPE_SECRET_KEY=sk_test_51SXiFvGZJJGnPK4uQPnvEgBRUKN2Pof4NXQuiODGAatKI0sxI02HqqZ7hmnRXZv0mHXGR7nBR7JfaBQvdjLhefHg00nHi7KPJC
+STRIPE_SECRET_KEY=YOUR_STRIPE_SECRET_KEY_HERE
 ```
 
 ## 🛡️ Security Checklist

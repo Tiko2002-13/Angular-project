@@ -8,7 +8,7 @@ const app = express();
 app.use(express.json());
 
 // Your Stripe Secret Key (from environment variable)
-// sk_test_51SXiFvGZJJGnPK4uQPnvEgBRUKN2Pof4NXQuiODGAatKI0sxI02HqqZ7hmnRXZv0mHXGR7nBR7JfaBQvdjLhefHg00nHi7KPJC
+// YOUR_STRIPE_SECRET_KEY_HERE
 
 // Create Checkout Session endpoint
 app.post('/api/create-checkout-session', async (req, res) => {
@@ -73,5 +73,5 @@ app.listen(PORT, () => {
 
 // Environment variable setup:
 // Create a .env file with:
-// STRIPE_SECRET_KEY=sk_test_51SXiFvGZJJGnPK4uQPnvEgBRUKN2Pof4NXQuiODGAatKI0sxI02HqqZ7hmnRXZv0mHXGR7nBR7JfaBQvdjLhefHg00nHi7KPJC
+// STRIPE_SECRET_KEY=YOUR_STRIPE_SECRET_KEY_HERE
 
