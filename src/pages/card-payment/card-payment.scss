@@ -1,0 +1,143 @@
+@use 'main' as *;
+
+.payment-section {
+    width: 172.8rem;
+    height: 65rem;
+    display: flex;
+    gap: 10rem;
+    justify-content: center;
+    align-items: center;
+}
+
+.grey3 {
+    color: $color-grey-3;
+}
+
+.primary {
+    color: $color-primary-default;
+}
+
+.product-box {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.product {
+    width: 64rem;
+    height: 10.5rem;
+    display: flex;
+    gap: 8rem;
+    //justify-content: space-around;
+    align-items: center;
+
+}
+
+.product-img {
+    width: 14.9rem;
+    height: 10.4rem;
+}
+
+.increase-decrease {
+    width: 12rem;
+    height: 4rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 2rem;
+    border-radius: 8px;
+    border: 1px solid $color-grey-2;
+}
+
+.cursor {
+    cursor: pointer;
+}
+
+.text-box {
+    width: 10rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.payment {
+    display: flex;
+    flex-direction: column;
+    border-radius: 4px;
+    gap: 2rem;
+    border: 1px solid $color-grey-2;
+    background-color: $color-grey-1;
+    width: 31rem;
+    height: 25.5rem;
+    position: relative;
+}
+
+.subtotal {
+    display: flex;
+    gap: 4rem;
+    justify-content: space-between;
+    padding: 1.5rem;
+    border-bottom: 1px solid $color-grey-2;
+}
+
+.shipping {
+    display: flex;
+    gap: 4rem;
+    justify-content: space-between;
+    padding: 1.5rem;
+}
+
+.left {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+}
+
+.right {
+    display: flex;
+    gap: 5rem;
+    align-items: center;
+}
+
+.payment-btn {
+    position: absolute;
+    top: 75%;
+    left: 20%;
+    transform: translateX(-50%);
+}
+
+.card-clear {
+    position: absolute;
+    top: 130%;
+    left: 40%;
+}
+
+.noProducts {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    text-align: center;
+
+    app-btn.goShopping {
+        transform: translateX(-11rem);
+    }
+}
+
+app-btn.payment-btn {
+  transform: translateX(-3rem);
+}
+
+.error-message {
+  position: absolute;
+  top: 90%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 90%;
+  padding: 1rem;
+  background-color: #fee;
+  border: 1px solid #e74c3c;
+  border-radius: 0.4rem;
+  color: #e74c3c;
+  text-align: center;
+  font-size: 1.2rem;
+}

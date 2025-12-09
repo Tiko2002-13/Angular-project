@@ -1,0 +1,40 @@
+<header class="top-bar">
+    <div class="contacts">
+        <div class="contacts__1">
+            <img [src]="mailBoxUrl">
+            <p class="subtitle-tiny">mhhasanul@gmail.com</p>
+        </div>
+        <div class="contacts__2">
+            <img [src]="phoneUrl">
+            <p class="subtitle-tiny">(12345)67890</p>
+        </div>
+    </div>
+
+
+
+    <nav class="menu">
+        @if(isLoggedIn$ | async) {
+            <button class="menu_btn" type="button">
+                <p class="subtitle-tiny">{{(userEmail$ | async) || 'User'}}</p>
+                <img [src]="humanUrl">
+            </button>
+            <button class="menu_btn" type="button" (click)="onLogout()">
+                <p class="subtitle-tiny">Logout</p>
+            </button>
+        } @else {
+            <button class="menu_btn" type="button" routerLink="/login" routerLinkActive="active">
+                <p class="subtitle-tiny">Login</p>
+                <img [src]="humanUrl">
+            </button>
+        } 
+        <button class="menu_btn" type="button">
+            <p class="subtitle-tiny">Wishlist</p>
+            <img [src]="heartUrl">
+        </button> 
+        <button class="menu_btn" type="button">
+            <img [src]="boughtItemUrl" class="shopLink" routerLink="/payment" routerLinkActive="active">
+        </button>   
+        <p class="itemCount">{{itemCount$ | async}}</p>   
+    </nav>
+   
+</header>

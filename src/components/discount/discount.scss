@@ -1,0 +1,97 @@
+@use 'main' as *;
+
+:host {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 100vw;
+    height: 90rem;
+    gap: 8rem;
+    padding: 5rem;
+}
+
+.chooseItems {
+    display: flex;
+    gap: 4rem;
+}
+
+.head-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 3rem;
+}
+
+.primary {
+    color: $color-primary-default;
+}
+
+.grey3 {
+    color: $color-grey-3;
+}
+
+a,a:link,a:visited,
+a:hover,a:active {        
+    text-decoration: none;  
+    cursor: pointer;
+}
+
+.container {
+    display: flex;
+    gap: 10rem;
+}
+
+.text-box {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+    width: 60rem;
+    height: 34rem;
+}
+
+.gridbox {
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    gap: 4rem;
+}
+
+.gridItem {
+    display: flex;
+    gap: 1.5rem;
+}
+
+.itemBox {
+    width: 65rem;
+    height: 58rem;
+    position: relative;
+
+}
+
+.big-bg {
+    width: 48rem;
+    height: 48rem;
+    background-color: $color-grey-2;
+    border-radius: 50%;
+    position: absolute;
+    top: 2rem;
+    left: 8.5rem;
+}
+
+.item {
+    position: absolute;
+    top: 1rem;
+    left: 17rem;
+    width: 52rem;
+    height: 52rem;
+}
+
+.small-bg {
+    width: 32rem;
+    height: 32rem;
+    background-color: $color-grey-2;
+    border-radius: 50%;
+    position: absolute;
+    top: 0;
+    left: 30rem;
+}
+

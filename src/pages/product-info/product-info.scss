@@ -1,0 +1,103 @@
+@use 'main' as *;
+
+:host {
+    display: block;
+    width: 172.8rem;
+}
+
+
+.grey3 {
+    color: $color-grey-3;
+}
+
+.info-section {
+    display: flex;
+    flex-direction: column;
+    gap: 4.5rem;
+    align-items: center;
+    background-color: $color-grey-1;
+    padding: 4rem;
+    max-width: 100vw;
+    height: 58rem;
+}
+
+
+
+.underline {
+    width: 13rem;
+    border: 1px solid $color-black;
+    position: absolute;
+    top: 5.5rem;
+
+    &-1 {
+        left: 0;
+    }
+
+    &-2 {
+        left: 20rem;
+    }
+
+    &-3 {
+        left: 38rem;
+    }
+
+    &-4 {
+        left: 50rem;
+    }
+}
+
+.headings {
+    display: flex;
+    gap: 4.5rem;
+    align-items: center;
+    width: 109rem;
+    position: relative;
+}
+
+.content-box {
+    width: 109rem;
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+}
+.link {
+    cursor: pointer;
+}
+
+.main {
+    width: 109rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem;
+}
+
+.secondary {
+   display: flex;
+   flex-direction: column;
+   gap: 2rem;
+}
+
+.text-box {
+    display: flex;
+    gap: 1.5rem;
+}
+
+.related-products {
+    max-width: 100vw;
+    height: 66rem;
+    display: flex;
+    padding: 8rem;
+    flex-direction: column;
+    gap: 4rem;
+    align-items: center;
+}
+
+.text-box {
+    width: 133rem;
+}
+
+.product-box {
+    display: flex;
+    gap: 3rem;
+    align-items: center;
+}

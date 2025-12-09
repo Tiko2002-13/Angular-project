@@ -1,0 +1,16 @@
+<div class="error-container" [attr.data-type]="type">
+  <div class="error-icon">
+    <span *ngIf="type === 'error'">⚠️</span>
+    <span *ngIf="type === 'warning'">⚡</span>
+    <span *ngIf="type === 'info'">ℹ️</span>
+  </div>
+  <p class="error-message">{{ message }}</p>
+  <button 
+    *ngIf="showRetry" 
+    class="retry-button" 
+    (click)="onRetry()"
+    type="button">
+    Try Again
+  </button>
+</div>
+

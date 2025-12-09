@@ -1,0 +1,40 @@
+@use 'main' as *;
+
+:host(.special-button) button {
+  background-color: $color-success-default;
+
+  &:hover {
+    background-color: $color-success-dark;
+  }
+}
+
+:host(.goShopping) button {
+  width: 22rem;
+}
+
+:host(.payment-btn) button {
+  width: 25rem;
+}
+
+button {
+    padding: 16px 40px;
+    position: absolute;
+    color: $color-white;
+    border-radius: 8px;
+    width: 18rem;
+    height: 5.6rem;
+    border: none;
+    text-align: center;
+    background-color: $color-primary-default;
+    cursor: pointer;
+    
+    &:hover:not(:disabled) {
+        background-color: $color-primary-dark;
+    }
+
+    &:disabled {
+        opacity: 0.6;
+        cursor: not-allowed;
+        background-color: $color-grey-3;
+    }
+}

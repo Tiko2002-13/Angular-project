@@ -1,0 +1,80 @@
+// Global animation styles for buttons and interactive elements
+
+// Button press animation
+button, .button, .slider-button, .menu_btn {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  
+  &:active {
+    transform: scale(0.95);
+  }
+  
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  }
+}
+
+// Smooth transitions for all interactive elements
+a, .select-item, .page {
+  transition: all 0.3s ease;
+}
+
+// Card hover animations
+.container, app-product-card, app-card {
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+              box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+// Icon animations
+.product-icon {
+  transition: transform 0.2s ease, opacity 0.2s ease;
+  
+  &:hover {
+    transform: scale(1.15);
+  }
+  
+  &:active {
+    transform: scale(0.95);
+  }
+}
+
+// Fade in animation for images
+img {
+  animation: fadeInImage 0.5s ease-in-out;
+}
+
+@keyframes fadeInImage {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+// Smooth height transitions
+.select-box {
+  animation: slideDown 0.3s ease-out;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+// Loading skeleton animation
+@keyframes shimmer {
+  0% {
+    background-position: -1000px 0;
+  }
+  100% {
+    background-position: 1000px 0;
+  }
+}
+

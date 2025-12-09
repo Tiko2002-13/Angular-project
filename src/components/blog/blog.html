@@ -1,0 +1,6 @@
+<h2 class="heading-secondary">Leatest Blog</h2>
+<div class="card-box">
+    @for(blog of blogItems; track blog.contactName) {
+        <app-blog-card [blogCard]="blog"></app-blog-card>
+    }
+</div>

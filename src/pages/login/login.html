@@ -1,0 +1,129 @@
+<app-header></app-header>
+<div @fadeIn class="login-container">
+  <div class="login-box">
+    <h2 class="heading-secondary">{{ isLoginMode ? 'Login' : 'Sign Up' }}</h2>
+    
+    @if(errorMessage) {
+      <div class="message error-message">
+        <p>{{ errorMessage }}</p>
+      </div>
+    }
+    
+    @if(successMessage) {
+      <div class="message success-message">
+        <p>{{ successMessage }}</p>
+      </div>
+    }
+
+    @if(isLoginMode) {
+      <form [formGroup]="loginForm" (ngSubmit)="onSubmit($event)" class="form" novalidate>
+        <div class="form-group">
+          <label class="label">Email</label>
+          <input 
+            type="email" 
+            formControlName="email" 
+            class="input"
+            placeholder="Enter your email"
+            [class.error]="loginForm.get('email')?.invalid && loginForm.get('email')?.touched">
+          @if(loginForm.get('email')?.invalid && loginForm.get('email')?.touched) {
+            <span class="error-text">{{ getEmailError() }}</span>
+          }
+        </div>
+
+        <div class="form-group">
+          <label class="label">Password</label>
+          <input 
+            type="password" 
+            formControlName="password" 
+            class="input"
+            placeholder="Enter your password"
+            [class.error]="loginForm.get('password')?.invalid && loginForm.get('password')?.touched">
+          @if(loginForm.get('password')?.invalid && loginForm.get('password')?.touched) {
+            <span class="error-text">{{ getPasswordError() }}</span>
+          }
+        </div>
+
+        <div class="form-actions">
+          <button type="submit" class="btn-primary" [disabled]="isLoading || loginForm.invalid">
+            {{ isLoading ? 'Logging in...' : 'Login' }}
+          </button>
+          
+          @if(showResendVerification) {
+            <button type="button" class="btn-secondary" (click)="resendVerification()" [disabled]="isLoading">
+              Resend Verification Email
+            </button>
+          }
+          
+          <button type="button" class="btn-link" (click)="resetPassword()" [disabled]="isLoading">
+            Forgot Password?
+          </button>
+        </div>
+      </form>
+    } @else {
+      <form [formGroup]="signupForm" (ngSubmit)="onSubmit($event)" class="form" novalidate>
+        <div class="form-group">
+          <label class="label">Email</label>
+          <input 
+            type="email" 
+            formControlName="email" 
+            class="input"
+            placeholder="Enter your email"
+            [class.error]="signupForm.get('email')?.invalid && signupForm.get('email')?.touched">
+          @if(signupForm.get('email')?.invalid && signupForm.get('email')?.touched) {
+            <span class="error-text">{{ getEmailError() }}</span>
+          }
+        </div>
+
+        <div class="form-group">
+          <label class="label">Password</label>
+          <input 
+            type="password" 
+            formControlName="password" 
+            class="input"
+            placeholder="Create a password (min 6 characters)"
+            [class.error]="signupForm.get('password')?.invalid && signupForm.get('password')?.touched">
+          @if(signupForm.get('password')?.invalid && signupForm.get('password')?.touched) {
+            <span class="error-text">{{ getPasswordError() }}</span>
+          }
+        </div>
+
+        <div class="form-group">
+          <label class="label">Confirm Password</label>
+          <input 
+            type="password" 
+            formControlName="confirmPassword" 
+            class="input"
+            placeholder="Confirm your password"
+            [class.error]="signupForm.get('confirmPassword')?.invalid && signupForm.get('confirmPassword')?.touched || signupForm.hasError('passwordMismatch')">
+          @if(signupForm.get('confirmPassword')?.invalid && signupForm.get('confirmPassword')?.touched || signupForm.hasError('passwordMismatch')) {
+            <span class="error-text">{{ getConfirmPasswordError() }}</span>
+          }
+        </div>
+
+        <div class="form-actions">
+          <button type="submit" class="btn-primary" [disabled]="isLoading || signupForm.invalid">
+            {{ isLoading ? 'Signing up...' : 'Sign Up' }}
+          </button>
+        </div>
+      </form>
+    }
+
+    <div class="toggle-mode">
+      <p class="body-default">
+        {{ isLoginMode ? "Don't have an account? " : "Already have an account? " }}
+        <button type="button" class="btn-link" (click)="toggleMode()">
+          {{ isLoginMode ? 'Sign Up' : 'Login' }}
+        </button>
+      </p>
+    </div>
+
+    <div class="info-box">
+      <p class="body-small grey3">
+        <strong>Two-Factor Authentication:</strong> After signing up, you'll receive a verification email. 
+        You must verify your email before you can login (this is your 2FA step).
+      </p>
+    </div>
+  </div>
+</div>
+<app-footer></app-footer>
+

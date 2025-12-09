@@ -1,0 +1,7 @@
+<ng-container *ngFor="let star of stars; let i = index">
+    <img 
+      [src]="stars.length - i - 1 >= starCount ? starActiveImgUrl : starImgUrl" 
+      alt="star" 
+      class="star"
+    />
+</ng-container>

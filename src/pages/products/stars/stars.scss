@@ -1,0 +1,12 @@
+@use 'main' as *;
+
+
+:host {
+    display: flex;
+    gap: 1rem;
+}
+
+.star {
+    width: 1.6rem;
+    height: 1.6rem;
+}

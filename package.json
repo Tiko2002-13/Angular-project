@@ -4,9 +4,17 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
+    "start:prod": "ng serve --configuration production",
     "build": "ng build",
+    "build:dev": "ng build --configuration development",
+    "build:prod": "ng build --configuration production",
     "watch": "ng build --watch --configuration development",
-    "test": "ng test"
+    "test": "ng test",
+    "test:headless": "ng test --browsers=ChromeHeadless --watch=false",
+    "test:coverage": "ng test --code-coverage --watch=false",
+    "lint": "ng lint",
+    "format": "prettier --write \"src/**/*.{ts,html,scss,css,json}\"",
+    "format:check": "prettier --check \"src/**/*.{ts,html,scss,css,json}\""
   },
   "prettier": {
     "overrides": [
@@ -25,11 +33,17 @@
     "@angular/common": "^20.1.0",
     "@angular/compiler": "^20.1.0",
     "@angular/core": "^20.1.0",
+    "@angular/fire": "^20.0.1",
     "@angular/forms": "^20.1.0",
     "@angular/material": "^20.2.2",
     "@angular/platform-browser": "^20.1.0",
     "@angular/router": "^20.1.0",
+    "@stripe/stripe-js": "^8.5.3",
+    "cors": "^2.8.5",
+    "express": "^5.2.1",
+    "firebase": "^12.6.0",
     "rxjs": "~7.8.0",
+    "stripe": "^20.0.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.15.0"
   },

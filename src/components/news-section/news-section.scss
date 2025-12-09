@@ -1,0 +1,33 @@
+@use 'main' as *;
+
+:host {
+    display: block;
+    width: 172.8rem;
+    height: 43rem;
+    background-image: url('../../assets/bg.svg');
+    background-size: 100%;
+    padding: 6rem;
+    align-items: center;
+    position: relative;
+    
+}
+
+.text-box {
+    display: flex;
+    flex-direction: column;
+    gap: 6rem;
+    width: 66rem;
+    height: 21rem;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    z-index: 100;
+    text-align: center;
+    align-items: center;
+}
+
+app-btn.news-btn {
+    transform: translateX(-10rem);
+}
+

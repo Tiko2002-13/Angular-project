@@ -1,0 +1,155 @@
+@use 'main' as *;
+
+.isActive {
+  transform: translateY(-4rem);
+}
+
+.container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  border-radius: 8px;
+  width: 31rem;
+  height: 38rem;
+  box-shadow: 0.8rem 6.4rem 8rem -1.6rem rgba(#101750, 0.15);
+  text-align: center;
+  opacity: 1;
+  transition: opacity 0.4s ease-in-out;
+}
+
+.product-image {
+  border-radius: 4px;
+  width: 100%;
+  height: auto;
+}
+
+.icons {
+  position: absolute;
+  display: flex;
+  gap: 1.5rem;
+  padding: 1rem;
+}
+
+.main-icon {
+  position: relative;
+  z-index: 100;
+  cursor: pointer;
+}
+
+.bg-div {
+  width: 3.2rem;
+  height: 3.2rem;
+  position: absolute;
+  top: .2rem;
+  left: .2rem;
+  border-radius: 50%;
+  z-index: 20;
+  background-color: $color-grey-2;
+  
+}
+
+
+
+.bg-active {
+  background-color: $color-primary-default;
+}
+
+app-btn.special-button {
+  position: absolute;
+  top: 46%;
+  left: 23%;
+  transform: translateX(-50%);
+  background-color: $color-success-default;
+}
+
+.p1 {
+  color: $color-primary-default;
+}
+
+.p3 {
+  color: $color-grey-3;
+}
+
+.discount-box {
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+  justify-content: center;
+}
+
+.marked {
+  text-decoration: line-through;
+  color: $color-grey-3;
+}
+
+/* --- Z o o m   S t y l e s --- */
+.blur-bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  /* Make the background fully transparent, so only the backdrop-filter applies */
+  background-color: transparent;
+  /* Add a fallback background-color for browsers that don't support backdrop-filter */
+  background-color: rgba(255, 255, 255, 0.1); /* This will be the only background if backdrop-filter fails */
+
+  /* Apply the blur */
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px); /* For Safari support */
+
+  z-index: 999; /* Ensure it's above normal content but below the modal */
+  pointer-events: auto;
+  user-select: none;
+
+  /* Ensure it has its own stacking context if needed, though 'fixed' usually does this */
+  /* transform: translateZ(0); */ /* Uncomment if blur still doesn't work, forces hardware acceleration/stacking context */
+}
+
+.zoomed-product {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 90vw;
+  height: 90vh;
+  max-width: 1000px;
+  max-height: 800px;
+  background-color: $color-white;
+  border-radius: 8px;
+  box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.3);
+  z-index: 1000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+.zoomed-img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  border-radius: 4px;
+}
+
+.close {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  font-size: 4rem;
+  color: $color-grey-3;
+  cursor: pointer;
+  z-index: 1001;
+  line-height: 1;
+  background-color: rgba($color-white, 0.8);
+  border-radius: 50%;
+  width: 4rem;
+  height: 4rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 0.2rem 0.5rem rgba(0, 0, 0, 0.2);
+}

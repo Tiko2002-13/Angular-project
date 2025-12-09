@@ -1,0 +1,17 @@
+@use 'main' as *;
+
+:host {
+    max-width: 100vw;
+    height: 68rem;
+    display: flex;
+    flex-direction: column;
+    gap: 4rem;
+    align-items: center;
+    padding: 6rem;
+}
+
+.product-box {
+    display: flex;
+    gap: 4rem;
+    align-items: center;
+}

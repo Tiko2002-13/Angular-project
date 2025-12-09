@@ -1,0 +1,12 @@
+<h2 class="heading-secondary">Top Categories</h2>
+<div class="trending-box">
+    
+    <app-trending-product [ind]="activeIndex" ></app-trending-product>
+    <app-trending-product [ind]="activeIndex + 1"></app-trending-product>
+    <app-trending-product [ind]="activeIndex + 2"></app-trending-product>
+    <app-trending-product [ind]="activeIndex + 3"></app-trending-product>
+</div>
+<div class="btn-box">
+    <div class="circle-btn" [class.isActive]="activeIndex === 0" (click)="onClick(0)"></div>
+    <div class="circle-btn" [class.isActive]="activeIndex === 1" (click)="onClick(1)"></div>
+</div>

@@ -1,0 +1,268 @@
+<app-header></app-header>
+<div @fadeIn>
+<div class="title-box">
+    <h1 class="heading-primary">Products</h1>
+    <nav class="navigate">
+        <a class="body-default grey3" routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Home</a>
+        <a class="body-default primary">Products</a>
+    </nav>
+</div>
+
+<div class="sort-box">
+    <div class="page-sort">
+        <p class="body-default grey3">Per Page</p>
+        <button class="menu_btn" (click)="onShowCountBar()" type="button">
+            <p class="subtitle-tiny">{{count}}</p>
+            <img [src]="arrowDownUrl" alt="Arrow" [class.sign]="showCountBar">
+        </button>
+        @if(showCountBar) {
+            <ul class="select-box select-box-count">
+                <li class="select-item"  (click)="onChooseCount(10)">10</li>
+                <li class="select-item"  (click)="onChooseCount(5)">5</li>
+                <li class="select-item"  (click)="onChooseCount(3)">3</li>
+            </ul>
+        } 
+    </div>
+    <div class="price-sort">
+        <p class="body-default grey3">Sort By</p>
+        <button class="menu_btn" (click)="onShowSortingBar()" type="button">
+            <p class="subtitle-tiny">{{sortOption}}</p>
+            <img [src]="arrowDownUrl" [class.sign]="showSortingBar">
+        </button>
+        @if(showSortingBar) {
+            <ul class="select-box select-box-sort">
+                <li class="select-item"  (click)="onChooseSort('Descending')">High -> Low</li>
+                <li class="select-item"  (click)="onChooseSort('Ascending')">Low -> High</li>
+                <li class="select-item"  (click)="onChooseSort('Rating')">Rating</li>
+            </ul>
+        }  
+    </div>
+    <div class="view-sort">
+        <p class="body-default grey3">View</p>
+        <img [src]="sortIcon1" (click)="onVariant(1)">
+        <img [src]="sortIcon2" (click)="onVariant(2)">
+    </div>
+</div>
+
+<div class="filter-box">
+    <div class="filter-group">
+        <div class="filter-title">
+            <p class="subtitle-small">Product Brand</p>
+            <div class="border"></div>
+        </div>
+        <div class="filter-list">
+            <div class="filter-item">
+                <div class="filter-icon filter-icon-1" (click)="onSortByBrand('Casio')" [class.active-1]="brandFilters.includes('Casio')">
+                    <img [src]="galchkaUrl" *ngIf="brandFilters.includes('Casio')" class="galchka">
+                </div>
+                <p class="body-default grey3">Casio</p>
+            </div>
+            <div class="filter-item">
+                <div class="filter-icon filter-icon-1" (click)="onSortByBrand('Apple')" [class.active-1]="brandFilters.includes('Apple')">
+                    <img [src]="galchkaUrl" *ngIf="brandFilters.includes('Apple')" class="galchka">
+                </div>
+                <p class="body-default grey3">Apple</p>
+            </div>
+            <div class="filter-item">
+                <div class="filter-icon filter-icon-1" (click)="onSortByBrand('Sony')" [class.active-1]="brandFilters.includes('Sony')">
+                    <img [src]="galchkaUrl" *ngIf="brandFilters.includes('Sony')" class="galchka">
+                </div>
+                <p class="body-default grey3">Sony</p>
+            </div>
+            <div class="filter-item">
+                <div class="filter-icon filter-icon-1" (click)="onSortByBrand('Nike')" [class.active-1]="brandFilters.includes('Nike')">
+                    <img [src]="galchkaUrl" *ngIf="brandFilters.includes('Nike')" class="galchka">
+                </div>
+                <p class="body-default grey3">Nike</p>
+            </div>
+            <div class="filter-item">
+                <div class="filter-icon filter-icon-1" (click)="onSortByBrand('Vke')" [class.active-1]="brandFilters.includes('Vke')">
+                    <img [src]="galchkaUrl" *ngIf="brandFilters.includes('Vke')" class="galchka">
+                </div>
+                <p class="body-default grey3">Vke</p>
+            </div>
+            <div class="filter-item">
+                <div class="filter-icon filter-icon-1" (click)="onSortByBrand('Glossiness')" [class.active-1]="brandFilters.includes('Glossiness')">
+                        <img [src]="galchkaUrl" *ngIf="brandFilters.includes('Glossiness')" class="galchka">
+                </div>
+                <p class="body-default grey3">Glossiness</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="filter-group">
+        <div class="filter-title">
+            <p class="subtitle-small">Discount Offer</p>
+            <div class="border"></div>
+        </div>
+        <div class="filter-list">
+            <div class="filter-item">
+                <div class="filter-icon filter-icon-2" (click)="onSortByDiscount(20)" [class.active-2]="discountFilters.includes(20)">
+                    <img [src]="galchkaUrl" *ngIf="discountFilters.includes(20)" class="galchka">
+                </div>
+                <p class="body-default grey3">20%  Cashback</p>
+            </div>
+            <div class="filter-item">
+                <div class="filter-icon filter-icon-2" (click)="onSortByDiscount(5)" [class.active-2]="discountFilters.includes(5)">
+                    <img [src]="galchkaUrl" *ngIf="discountFilters.includes(5)" class="galchka">
+                </div>
+                <p class="body-default grey3">5% Cashback Offer</p>
+            </div>
+            <div class="filter-item">
+                <div class="filter-icon filter-icon-2" (click)="onSortByDiscount(25)" [class.active-2]="discountFilters.includes(25)">
+                    <img [src]="galchkaUrl" *ngIf="discountFilters.includes(25)" class="galchka">
+                </div>
+                <p class="body-default grey3">25% Discount Offer</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="filter-group">
+        <div class="filter-title">
+            <p class="subtitle-small">Rating</p>
+            <div class="border"></div>
+        </div>
+        <div class="filter-list">
+            <div class="filter-item">
+                <div class="filter-icon filter-icon-3" (click)="onSortByRating(0)" [class.active-3]="ratingFilters.includes(0)">
+                    <img [src]="galchkaUrl" *ngIf="ratingFilters.includes(0)" class="galchka">
+                </div>
+                <app-stars [starCount]="0"></app-stars>
+            </div>
+            <div class="filter-item">
+                <div class="filter-icon filter-icon-3" (click)="onSortByRating(1)" [class.active-3]="ratingFilters.includes(1)">
+                    <img [src]="galchkaUrl" *ngIf="ratingFilters.includes(1)" class="galchka">
+                </div>
+                <app-stars [starCount]="1"></app-stars>
+            </div>
+            <div class="filter-item">
+                <div class="filter-icon filter-icon-3" (click)="onSortByRating(2)" [class.active-3]="ratingFilters.includes(2)">
+                    <img [src]="galchkaUrl" *ngIf="ratingFilters.includes(2)" class="galchka">
+                </div>
+                <app-stars [starCount]="2"></app-stars>
+            </div>
+            <div class="filter-item">
+                <div class="filter-icon filter-icon-3" (click)="onSortByRating(3)" [class.active-3]="ratingFilters.includes(3)">
+                    <img [src]="galchkaUrl" *ngIf="ratingFilters.includes(3)" class="galchka">
+                </div>
+                <app-stars [starCount]="3"></app-stars>
+            </div>
+            <div class="filter-item">
+                <div class="filter-icon filter-icon-3" (click)="onSortByRating(4)" [class.active-3]="ratingFilters.includes(4)">
+                    <img [src]="galchkaUrl" *ngIf="ratingFilters.includes(4)" class="galchka">
+                </div>
+                <app-stars [starCount]="4"></app-stars>
+            </div>
+        </div>
+    </div>
+
+    <div class="filter-group">
+        <div class="filter-title">
+            <p class="subtitle-small">Categories</p>
+            <div class="border"></div>
+        </div>
+        <div class="filter-list">
+            <div class="filter-item">
+                <div class="filter-icon filter-icon-2" (click)="onSortByType('Watches')" [class.active-2]="categoriesFilters.includes('Watches')">
+                    <img [src]="galchkaUrl" *ngIf="categoriesFilters.includes('Watches')" class="galchka">
+                </div>
+                <p class="body-default grey3">Watches</p>
+            </div>
+            <div class="filter-item">
+                <div class="filter-icon filter-icon-2" (click)="onSortByType('Headphones')" [class.active-2]="categoriesFilters.includes('Headphones')">
+                    <img [src]="galchkaUrl" *ngIf="categoriesFilters.includes('Headphones')" class="galchka">
+                </div>
+                <p class="body-default grey3">Headphones</p>
+            </div>
+            <div class="filter-item">
+                <div class="filter-icon filter-icon-2" (click)="onSortByType('Laptop')" [class.active-2]="categoriesFilters.includes('Laptop')">
+                    <img [src]="galchkaUrl" *ngIf="categoriesFilters.includes('Laptop')" class="galchka">
+                </div>
+                <p class="body-default grey3">Laptop</p>
+            </div>
+            <div class="filter-item">
+                <div class="filter-icon filter-icon-2" (click)="onSortByType('Game Console')" [class.active-2]="categoriesFilters.includes('Game Console')">
+                    <img [src]="galchkaUrl" *ngIf="categoriesFilters.includes('Game Console')" class="galchka">
+                </div>
+                <p class="body-default grey3">Game Console</p>
+            </div>
+            <div class="filter-item">
+                <div class="filter-icon filter-icon-2" (click)="onSortByType('Shoes')" [class.active-2]="categoriesFilters.includes('Shoes')">
+                    <img [src]="galchkaUrl" *ngIf="categoriesFilters.includes('Shoes')" class="galchka">
+                </div>
+                <p class="body-default grey3">Shoes</p>
+            </div>
+            <div class="filter-item">
+                <div class="filter-icon filter-icon-2" (click)="onSortByType('Jewellery')" [class.active-2]="categoriesFilters.includes('Jewellery')">
+                    <img [src]="galchkaUrl" *ngIf="categoriesFilters.includes('Jewellery')" class="galchka">
+                </div>
+                <p class="body-default grey3">Jewellery</p>
+            </div>
+            <div class="filter-item">
+                <div class="filter-icon filter-icon-2" (click)="onSortByType('Perfume')" [class.active-2]="categoriesFilters.includes('Perfume')">
+                    <img [src]="galchkaUrl" *ngIf="categoriesFilters.includes('Perfume')" class="galchka">
+                </div>
+                <p class="body-default grey3">Perfume</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="filter-group">
+        <div class="filter-title">
+            <p class="subtitle-small">Price</p>
+            <div class="border"></div>
+        </div>
+        <div class="filter-list">
+            <div class="filter-item">
+                <div class="filter-icon filter-icon-2" (click)="onSortByPrice('0-150')" [class.active-2]="priceFilters.includes('0-150')">
+                    <img [src]="galchkaUrl" *ngIf="priceFilters.includes('0-150')" class="galchka">
+                </div>
+                <p class="body-default grey3">$0-$150</p>
+            </div>
+            <div class="filter-item">
+                <div class="filter-icon filter-icon-2" (click)="onSortByPrice('150-350')" [class.active-2]="priceFilters.includes('150-350')">
+                    <img [src]="galchkaUrl" *ngIf="priceFilters.includes('150-350')" class="galchka">
+                </div>
+                <p class="body-default grey3">$150-$350</p>
+            </div>
+            <div class="filter-item">
+                <div class="filter-icon filter-icon-2" (click)="onSortByPrice('350-500')" [class.active-2]="priceFilters.includes('350-500')">
+                    <img [src]="galchkaUrl" *ngIf="priceFilters.includes('350-500')" class="galchka">
+                </div>
+                <p class="body-default grey3">$350-$500</p>
+            </div>
+            <div class="filter-item">
+                <div class="filter-icon filter-icon-2" (click)="onSortByPrice('550-800')" [class.active-2]="priceFilters.includes('550-800')">
+                    <img [src]="galchkaUrl" *ngIf="priceFilters.includes('550-800')" class="galchka">
+                </div>
+                <p class="body-default grey3">$550-$800</p>
+            </div>
+            <div class="filter-item">
+                <div class="filter-icon filter-icon-2" (click)="onSortByPrice('800+')" [class.active-2]="priceFilters.includes('800-10000000')">
+                    <img [src]="galchkaUrl" *ngIf="priceFilters.includes('800-10000000')" class="galchka">
+                </div>
+                <p class="body-default grey3">$800+</p>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="card-box" [ngClass]="{
+      'card-box-grid': variant === 1,
+      'card-box-5': count === 5,
+      'card-box-3': count === 3
+    }"> 
+    <ng-container *ngFor="let product of items; let idx = index">
+        <app-card [isGrid]="variant === 1 ? true : false" [ind]="idx" [products]="items">
+    </app-card>
+    </ng-container> 
+    <div class="pagination">
+        <div class="page" [class.activePage]="activePage === 1" (click)="onChangePage(1)">1</div>
+        <div class="page" *ngIf="count <= 5" [class.activePage]="activePage === 2" (click)="onChangePage(2)">2</div>
+        <div class="page" *ngIf="count <= 3" [class.activePage]="activePage === 3" (click)="onChangePage(3)">3</div>
+        <div class="page" *ngIf="count <= 3" [class.activePage]="activePage === 4" (click)="onChangePage(4)">4</div>
+    </div>
+</div>
+</div>
+
+<app-footer class="foot"></app-footer>
+

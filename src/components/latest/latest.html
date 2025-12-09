@@ -1,0 +1,18 @@
+  <h2 class="heading-secondary">Latest Products</h2>
+
+  <div class="nav-header">
+    <a id="special" class="body-large p1" href="#">New Arrival</a>
+    <a class="body-large" href="#">Best Seller</a>
+    <a class="body-large" href="#">Featured</a>
+    <a class="body-large" href="#">Special Offer</a>
+  </div>
+
+  <div class="card-box">
+    @for(item of itemsArray; track item) {
+    <app-product-card-v2 [ind]="item"></app-product-card-v2>
+    }
+
+    <img [src]="saleIconUrl" alt="Sale Icon" class="saleIcon" />
+
+    <p class="label-small onSale">Sale</p>
+  </div>

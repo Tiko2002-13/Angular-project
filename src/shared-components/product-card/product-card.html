@@ -1,0 +1,32 @@
+<div [ngClass]="{ 'container': true, 'isActive': isHovered}" (mouseenter)="onHover(true)" (mouseleave)="onHover(false)" (click)="onView(products[ind], $event)">
+    <img [src]="products[ind].imgUrl" alt={{products[ind].name}} class="product-image"/>
+    @if(isHovered && !hoverDisabled) {
+        <div class="icons">
+            <div  [ngClass]="{ 'bg-div': true, 'bg-active': active}" ></div>
+            <img   (click)="onAdd(products[ind], $event)" [src]="shopIconUrl" alt="Shop Icon" class="product-icon main-icon"/>
+            <img   [src]="heartIconUrl" alt="Add Icon" class="product-icon main-icon"/>
+            <img (click)="onZoom($event)"   [src]="loopIconUrl" alt="Zoom Icon" class="product-icon"/>
+        </div>
+    }
+    
+    <app-btn *ngIf="isHovered && hoverDisabled !==  true" (click)="onView(products[ind], $event)" text="View Details" class="special-button"/>
+
+    <p class="label-bold p1">{{products[ind].name}}</p>
+    <p *ngIf="variant === 1" class="label-small p3">Code - Y523201</p>
+    <p *ngIf="variant === 1" class="label-bold ">{{products[ind].price}}</p>
+
+    <div *ngIf="variant === 2" class="discount-box">
+        <p class="label-default">$58.00</p>
+        <p class="label-small p3 marked">{{products[ind].price}}</p>
+    </div>
+    
+    
+    
+</div>
+@if(zoomed) {
+        <div class="blur-bg"></div>
+        <div class="zoomed-product">
+            <img [src]="products[ind].imgUrl" class="zoomed-img">
+            <div (click)="onCloseZoom()" class="close">&times;</div>
+        </div>
+    }
