@@ -32,7 +32,6 @@ export class CardPayment {
   protected paymentError: string = '';
 
   constructor() {
-    // Subscribe to product changes to update totals
     this.productService.boughtProducts$.subscribe(() => {
       this.products = this.productService.getboughtProducts();
       this.hasProducts = this.products.length !== 0;
@@ -75,15 +74,11 @@ export class CardPayment {
     this.paymentError = '';
 
     try {
-      // Create Stripe checkout session
       const sessionData = await this.stripeService.createCheckoutSession();
       
       if (sessionData) {
-        // Redirect to Stripe Checkout
         await this.stripeService.redirectToCheckout(sessionData);
         
-        // Note: After successful payment, Stripe will redirect to success URL
-        // The cart will be cleared on the success page
       } else {
         this.paymentError = 'Failed to create checkout session. Please try again.';
       }

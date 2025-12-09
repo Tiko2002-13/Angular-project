@@ -17,7 +17,6 @@ export class TopBar {
   protected authService = inject(AuthService);
   private router = inject(Router);
   
-  // Use Observable directly with async pipe for automatic change detection
   protected itemCount$: Observable<number> = this.productService.boughtProducts$.pipe(
     map(products => products.length)
   );
@@ -25,8 +24,7 @@ export class TopBar {
   protected isLoggedIn$: Observable<boolean> = this.authService.isAuthenticated$;
   protected userEmail$: Observable<string | null> = this.authService.userEmail$;
   
-  protected mailBoxUrl = 'assets/contact-icon1.png';
-  protected phoneUrl = 'assets/contact-icon2.png';
+  protected logoUrl = 'assets/Logo.svg';
   protected heartUrl = 'assets/heart.svg';
   protected humanUrl = 'assets/human.svg';
   protected boughtItemUrl = 'assets/boughtItems.svg';

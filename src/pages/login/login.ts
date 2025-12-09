@@ -40,35 +40,27 @@ export class Login implements OnInit, OnDestroy {
   });
 
   constructor() {
-    // Add custom validator for password confirmation
     this.signupForm.addValidators(this.passwordMatchValidator);
     
-    // Check Firebase configuration on init
     this.checkFirebaseConfig();
   }
 
   ngOnInit() {
-    // Check for email verification callback
     this.route.queryParams.subscribe(params => {
       if (params['mode'] === 'verifyEmail' || params['oobCode']) {
-        // User is coming back from email verification
         this.isLoginMode = true;
         this.successMessage = 'Email verified successfully! You can now login.';
-        // Clear query params
         this.router.navigate([], { queryParams: {} });
       }
     });
 
-    // Listen to auth state changes to detect email verification
     this.authStateSubscription = this.authService.authState$.pipe(
       filter(user => user !== null)
     ).subscribe(user => {
-      // If user is verified and we're on signup page, switch to login
       if (user && user.emailVerified && !this.isLoginMode) {
         this.isLoginMode = true;
         this.successMessage = 'Email verified successfully! You can now login.';
         this.isLoading = false; // Reset loading state
-        // Only set email, NOT password - password should be empty
         if (user.email) {
           this.loginForm.patchValue({ 
             email: user.email,
@@ -86,7 +78,6 @@ export class Login implements OnInit, OnDestroy {
   }
 
   private checkFirebaseConfig() {
-    // This will be checked when trying to use auth, but we can show a warning
     const env = (window as any).__ENV__ || {};
     if (!env.firebase?.apiKey || env.firebase.apiKey.includes('your-api-key')) {
       console.warn('Firebase may not be configured. Check environment files.');
@@ -115,7 +106,6 @@ export class Login implements OnInit, OnDestroy {
       event.stopPropagation();
     }
 
-    // Prevent multiple submissions
     if (this.isLoading) {
       return;
     }
@@ -124,7 +114,6 @@ export class Login implements OnInit, OnDestroy {
     this.successMessage = '';
     this.isLoading = true;
 
-    // Add timeout to prevent infinite loading
     const timeoutId = setTimeout(() => {
       if (this.isLoading) {
         console.error('Operation timed out');
@@ -163,7 +152,6 @@ export class Login implements OnInit, OnDestroy {
         this.router.navigate(['/']);
       }, 1000);
     } else {
-      // Set error message - loading will be reset by finally block in onSubmit
       this.errorMessage = result.message;
       this.showResendVerification = result.needsVerification;
     }
@@ -185,25 +173,20 @@ export class Login implements OnInit, OnDestroy {
     if (result.success) {
       this.successMessage = result.message;
       this.showResendVerification = true;
-      // Clear the signup form
       this.signupForm.reset();
-      // Switch to login mode immediately after successful signup
       this.isLoginMode = true;
-      // Only set email, NOT password - password should be empty
       if (email) {
         this.loginForm.patchValue({ 
           email: email,
           password: '' // Explicitly clear password
         });
       } else {
-        // Clear both fields if no email
         this.loginForm.patchValue({ 
           email: '',
           password: ''
         });
       }
     } else {
-      // Set error message - loading will be reset by finally block in onSubmit
       this.errorMessage = result.message;
     }
   }

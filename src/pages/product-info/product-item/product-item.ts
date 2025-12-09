@@ -19,7 +19,6 @@ export class ProductItem implements OnChanges {
   hasProducts: boolean = false;
 
   ngOnChanges(changes: SimpleChanges): void {
-    // Update hasProducts when product changes
     if (changes['product'] && this.product) {
       this.hasProducts = this.productService.hasProduct(this.product);
     }

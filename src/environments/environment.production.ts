@@ -1,6 +1,6 @@
 export const environment = {
   production: true,
-  apiUrl: '', // ⚠️ Update this with your deployed backend URL (e.g., https://your-backend.onrender.com/api)
+  apiUrl: 'https://stripe-backend-su2p.onrender.com/api',
   appName: 'My Angular App',
   version: '0.0.0',
   enableDebugTools: false,

@@ -28,7 +28,6 @@ export class ProductCardV2 implements OnInit {
   constructor(private router: Router) {}
 
   ngOnInit(): void {
-    // Subscribe to cart updates to show active state
     this.productService.boughtProducts$.subscribe((products: Product[]) => {
       this.active = products.includes(this.products[this.ind]);
     });

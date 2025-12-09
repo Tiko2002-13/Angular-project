@@ -1,6 +1,5 @@
 import { trigger, transition, style, animate, query, stagger } from '@angular/animations';
 
-// Page fade-in animation
 export const fadeInAnimation = trigger('fadeIn', [
   transition(':enter', [
     style({ opacity: 0 }),
@@ -8,7 +7,6 @@ export const fadeInAnimation = trigger('fadeIn', [
   ])
 ]);
 
-// Page slide up animation
 export const slideUpAnimation = trigger('slideUp', [
   transition(':enter', [
     style({ opacity: 0, transform: 'translateY(30px)' }),
@@ -16,7 +14,6 @@ export const slideUpAnimation = trigger('slideUp', [
   ])
 ]);
 
-// Stagger animation for lists
 export const listAnimation = trigger('listAnimation', [
   transition('* => *', [
     query(':enter', [
@@ -28,7 +25,6 @@ export const listAnimation = trigger('listAnimation', [
   ])
 ]);
 
-// Button press animation
 export const buttonPressAnimation = trigger('buttonPress', [
   transition('* => pressed', [
     animate('100ms ease-in', style({ transform: 'scale(0.95)' })),
@@ -36,7 +32,6 @@ export const buttonPressAnimation = trigger('buttonPress', [
   ])
 ]);
 
-// Card hover animation
 export const cardHoverAnimation = trigger('cardHover', [
   transition(':enter', [
     style({ opacity: 0, transform: 'scale(0.95)' }),
@@ -47,7 +42,6 @@ export const cardHoverAnimation = trigger('cardHover', [
   ])
 ]);
 
-// Route transition animation
 export const routeAnimation = trigger('routeAnimation', [
   transition('* <=> *', [
     query(':enter, :leave', [
@@ -63,7 +57,6 @@ export const routeAnimation = trigger('routeAnimation', [
   ])
 ]);
 
-// Fade scale animation
 export const fadeScaleAnimation = trigger('fadeScale', [
   transition(':enter', [
     style({ opacity: 0, transform: 'scale(0.8)' }),
@@ -72,7 +65,6 @@ export const fadeScaleAnimation = trigger('fadeScale', [
   ])
 ]);
 
-// Slide in from left
 export const slideInLeftAnimation = trigger('slideInLeft', [
   transition(':enter', [
     style({ opacity: 0, transform: 'translateX(-50px)' }),
@@ -80,7 +72,6 @@ export const slideInLeftAnimation = trigger('slideInLeft', [
   ])
 ]);
 
-// Slide in from right
 export const slideInRightAnimation = trigger('slideInRight', [
   transition(':enter', [
     style({ opacity: 0, transform: 'translateX(50px)' }),

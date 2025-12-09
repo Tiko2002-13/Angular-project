@@ -29,11 +29,9 @@ export class ProductInfo implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    // Subscribe to route parameter changes to update product when navigating
     this.route.paramMap.subscribe(params => {
       const productName = params.get('name');
       this.loadProduct(productName);
-      // Scroll to top when product changes
       window.scrollTo({ top: 0, behavior: 'smooth' });
     });
   }
@@ -42,37 +40,30 @@ export class ProductInfo implements OnInit {
     const products = this.productService.getProducts();
     
     if (productName) {
-      // First, check if viewProduct exists and matches the URL parameter
       if (this.productService.viewProduct && this.productService.viewProduct.name === productName) {
         this.currentProduct = this.productService.viewProduct;
       } else {
-        // Try to find product by name from URL in products array
         const foundProduct = products.find(p => p.name === productName);
         
         if (foundProduct) {
           this.currentProduct = foundProduct;
           this.productService.sendProduct(foundProduct);
         } else {
-          // Product not found by name, check if viewProduct exists (might be from rated products)
           if (this.productService.viewProduct) {
             this.currentProduct = this.productService.viewProduct;
           } else {
-            // Use first product as default
             this.setDefaultProduct(products);
           }
         }
       }
     } else {
-      // No product name in URL, check if there's a viewProduct set
       if (this.productService.viewProduct) {
         this.currentProduct = this.productService.viewProduct;
       } else {
-        // Use first product as default
         this.setDefaultProduct(products);
       }
     }
 
-    // Set related products (exclude current product)
     this.setRelatedProducts(products);
   }
 
@@ -84,13 +75,10 @@ export class ProductInfo implements OnInit {
   }
 
   private setRelatedProducts(allProducts: Product[]): void {
-    // Get 4 products excluding the current one
     this.relatedProducts = allProducts
       .filter(p => p.name !== this.currentProduct?.name)
       .slice(0, 4);
     
-    // Get the indices of these products in the full products array
-    // so ProductCard can access them correctly
     this.relatedProductIndices = this.relatedProducts.map(product => 
       allProducts.findIndex(p => p.name === product.name)
     );

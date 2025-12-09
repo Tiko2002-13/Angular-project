@@ -23,7 +23,6 @@ export class Featured {
     
     this.isAnimating = true;
     
-    // Delay for smooth animation
     setTimeout(() => {
       this.showIndexes = 4 * index;
       this.activeIndex = index;

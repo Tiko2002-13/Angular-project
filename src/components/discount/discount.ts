@@ -13,7 +13,6 @@ import Product from '../../app/models/product.interface';
 })
 export class Discount {
   protected checkImgUrl = 'assets/check.svg';
-  //headphonesUrl = 'assets/discountHeadphones.svg';
   protected products: Product[] = [
     {
       name: 'headphones',

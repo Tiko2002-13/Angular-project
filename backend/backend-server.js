@@ -1,9 +1,4 @@
-// Simple Stripe Backend Server
-// Run with: node backend-server.js
-
 const express = require('express');
-// Use environment variable for Stripe key (required for security)
-// Set STRIPE_SECRET_KEY environment variable before running
 if (!process.env.STRIPE_SECRET_KEY) {
   console.error('ERROR: STRIPE_SECRET_KEY environment variable is required!');
   console.error('Set it with: export STRIPE_SECRET_KEY="your-key-here"');
@@ -13,15 +8,17 @@ const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY);
 const cors = require('cors');
 const app = express();
 
-// Enable CORS for your Angular app
 app.use(cors({
-  origin: ['http://localhost:4200', 'https://best--shop.web.app'],
+  origin: [
+    'http://localhost:4200',
+    'https://best--shop.web.app',
+    'https://best--shop.firebaseapp.com'
+  ],
   credentials: true
 }));
 
 app.use(express.json());
 
-// Create Checkout Session endpoint
 app.post('/api/create-checkout-session', async (req, res) => {
   try {
     const { lineItems, successUrl, cancelUrl } = req.body;
@@ -32,12 +29,10 @@ app.post('/api/create-checkout-session', async (req, res) => {
       body: req.body 
     });
 
-    // Validate request
     if (!lineItems || !Array.isArray(lineItems) || lineItems.length === 0) {
       return res.status(400).json({ error: 'No items in cart' });
     }
 
-    // Create Stripe Checkout Session
     const session = await stripe.checkout.sessions.create({
       payment_method_types: ['card'],
       line_items: lineItems,
@@ -48,7 +43,6 @@ app.post('/api/create-checkout-session', async (req, res) => {
 
     console.log('Checkout session created:', session.id);
 
-    // Return both sessionId and URL
     res.json({ 
       sessionId: session.id,
       url: session.url 
@@ -59,7 +53,6 @@ app.post('/api/create-checkout-session', async (req, res) => {
   }
 });
 
-// Verify payment after checkout
 app.get('/api/verify-payment/:sessionId', async (req, res) => {
   try {
     const { sessionId } = req.params;
@@ -68,7 +61,7 @@ app.get('/api/verify-payment/:sessionId', async (req, res) => {
     res.json({ 
       success: session.payment_status === 'paid',
       paymentStatus: session.payment_status,
-      amount: session.amount_total / 100, // Convert from cents
+      amount: session.amount_total / 100,
       customerEmail: session.customer_details?.email
     });
   } catch (error) {

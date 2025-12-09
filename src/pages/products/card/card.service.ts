@@ -13,7 +13,6 @@ export class CardService {
 
     getProductsbyBrand(brands: string[]) {
         let sortedbyBrand: Product[] = this.getProducts().slice();
-        // If filters exist, apply them; otherwise return all products
         sortedbyBrand = brands.length > 0 
             ? sortedbyBrand.filter(product => brands.includes(product.brand)) 
             : sortedbyBrand;
@@ -21,21 +20,18 @@ export class CardService {
     }
 
     getProductsbyDiscount(sortedByBrand: Product[], discounts: number[]) {
-        // If filters exist, apply them; otherwise return input unchanged
         return discounts.length > 0 
             ? sortedByBrand.filter(product => discounts.includes(product.discount)) 
             : sortedByBrand;
     }
 
     getProductsbyRating(sortedByDiscount: Product[], ratings: number[]) {
-        // If filters exist, apply them; otherwise return input unchanged
         return ratings.length > 0 
             ? sortedByDiscount.filter(product => ratings.includes(product.starCount)) 
             : sortedByDiscount;
     }
 
     getProductsbyType(sortedByRating: Product[], types: string[]) {
-        // If filters exist, apply them; otherwise return input unchanged
         return types.length > 0 
             ? sortedByRating.filter(product => types.includes(product.type)) 
             : sortedByRating;

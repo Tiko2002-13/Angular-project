@@ -23,7 +23,6 @@ export class AuthService {
   );
 
   constructor() {
-    // Listen to auth state changes
     onAuthStateChanged(this.auth, (user) => {
       this.authStateSubject.next(user);
     });
@@ -39,8 +38,6 @@ export class AuthService {
       }
       const userCredential = await createUserWithEmailAndPassword(this.auth, email, password);
       
-      // Send email verification (2FA step 1)
-      // If email sending fails, still consider signup successful since user is created
       try {
         await sendEmailVerification(userCredential.user);
         return {
@@ -49,7 +46,6 @@ export class AuthService {
         };
       } catch (emailError: any) {
         console.warn('Email verification send failed, but user created:', emailError);
-        // User is created, but email sending failed - still return success
         return {
           success: true,
           message: 'Account created! However, verification email could not be sent. You can request a new verification email from the login page.'
@@ -78,7 +74,6 @@ export class AuthService {
       console.log('Attempting to sign in with email:', email);
       const userCredential = await signInWithEmailAndPassword(this.auth, email, password);
       
-      // Check if email is verified (2FA requirement)
       if (!userCredential.user.emailVerified) {
         await signOut(this.auth);
         return {
@@ -116,7 +111,6 @@ export class AuthService {
           message: 'Verification email sent! Please check your inbox.'
         };
       }
-      // If no current user, try to reload auth state
       await this.auth.authStateReady();
       const currentUser = this.auth.currentUser;
       if (currentUser && !currentUser.emailVerified) {
@@ -193,7 +187,6 @@ export class AuthService {
         if (errorCode?.includes('400') || errorCode?.includes('Bad Request')) {
           return 'Invalid request. Please check your Firebase configuration in environment files.';
         }
-        // Handle Firebase error codes that might come as strings
         if (typeof errorCode === 'string' && errorCode.includes('email-already-in-use')) {
           return 'This email is already registered. Please use a different email or try logging in instead.';
         }
