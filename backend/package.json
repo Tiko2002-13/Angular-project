@@ -1,0 +1,18 @@
+{
+  "name": "stripe-backend-server",
+  "version": "1.0.0",
+  "description": "Backend server for Stripe payments",
+  "main": "backend-server.js",
+  "scripts": {
+    "start": "node backend-server.js"
+  },
+  "dependencies": {
+    "express": "^4.19.2",
+    "stripe": "^20.0.0",
+    "cors": "^2.8.5"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}
+
